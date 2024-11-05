@@ -14,3 +14,4 @@ HANGMAN
 *.exe
 *.json
 *.o
+build
