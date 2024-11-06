@@ -5,9 +5,10 @@ int main(){
     float salary = 50000.50;
     char grade = 'A';
 
-    printf("Age: %d\n", age);
-    printf("Salary: %.2f\n", salary);
-    printf("Grade: %c\n", grade);
+    printf("Age: %d\n", age); //%d for ints
+    printf("Salary: %.2f\n", salary); //%f for floats
+    printf("Grade: %c\n", grade); //%c for chard
     
     return 0;
 }
+//%p for pointers
