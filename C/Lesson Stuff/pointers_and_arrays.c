@@ -8,7 +8,8 @@ int main() {
     // Access array elements using pointer arithmetic
     printf("Array elements using pointers:\n");
     for (i = 0; i < 5; i++) {
-        printf("Element %d: %d\n", i + 1, *(ptr + i)); // increment counter and pointer [also dereference counter with the asterisk to get the value there{proof of concept run it without the asterist}]
+        printf("Address of element %d: %p\n", i + 1, (ptr + i));
+        printf("Value stored at element %d: %d\n", i + 1, *(ptr + i)); // increment counter and pointer [also dereference counter with the asterisk to get the value there{proof of concept run it without the asterist}]
     }
 
     return 0;
