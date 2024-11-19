@@ -17,7 +17,7 @@ int main() {
     // Null-terminate the destination string
     *dest_ptr = '\0'; 
 
-    //print everythign
+    //print everything
     printf("Original word: %s\nCopied here: %s\n", word_to_copy, copied_to);
 
     return 0;

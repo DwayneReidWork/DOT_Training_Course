@@ -3,11 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+char letter;
+
 void vowel_counter(char* str, int* up_v, int* low_v) 
 {
     int upper_vowel = 0;
     int lower_vowel = 0;
-    char letter;
+    //char letter;
 
     for (int i = 0; str[i] != '\0'; i++) 
     { 
@@ -29,7 +31,7 @@ void vowel_counter(char* str, int* up_v, int* low_v)
 void consonant_counter(char* str, int* up_c, int* low_c)
 {
     int upper_cons = 0 , lower_cons = 0;
-    char letter;
+    //char letter;
     for (int i = 0; str[i] != '\0'; i++) { 
         letter = str[i];
 
@@ -55,7 +57,7 @@ void consonant_counter(char* str, int* up_c, int* low_c)
 
 void special_counter(char* str, int* sp_c)
 {
-    char letter;
+    //char letter;
     int counter = 0;
 
     for (int i = 0; str[i] != '\0'; i++)
@@ -78,12 +80,12 @@ int main()
 
     //get user inuput
     printf("Please enter a string you'd like to count vowels and consonants in: ");
-    //fgets reads full line. scanf stops at white space
-    //stores read chars in string_to_count array --> sizeof(string_to_count) limits read chars up to null terminator from standard input
+    /*fgets reads full line. scanf stops at white space
+    stores read chars in string_to_count array --> sizeof(string_to_count) limits read chars up to null terminator from standard input*/
     fgets(string_to_count, sizeof(string_to_count), stdin);
-    //removes new line char and replaces it with nul terminator
-    //explanation fgets stores "Hello, World!\n\0"
-    // this line fixes that
+    /*removes new line char and replaces it with nul terminator
+    explanation fgets stores "Hello, World!\n\0"
+    this line fixes that*/
     string_to_count[strcspn(string_to_count, "\n")] = '\0';   
     while (choice != 7) {
         // Display options menu
@@ -131,8 +133,8 @@ int main()
                     printf("Total number of uppercase consonents: %d\n", up_c);
                     break;
                 case 6:
-                    printf("Total number of uppercase vowels: %d\n", low_v);
-                    printf("Total number of uppercase consonents: %d\n", low_c);
+                    printf("Total number of lowercase vowels: %d\n", low_v);
+                    printf("Total number of lowercase consonents: %d\n", low_c);
                     break;
                 case 7:
                     printf("Goodbye.\n");
