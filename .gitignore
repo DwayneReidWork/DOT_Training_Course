@@ -1,15 +1,23 @@
-__pycache__
-//*test.*
+# Ignore Python cache
+__pycache__/
+
+# Ignore specific test files
 test.*
+PYTHON/EXERCISES/test.py
+C:/Users/Dreid/Desktop/DOT_Training_Course/PYTHON/EXERCISES
+PYTHON/EXERCISES/test.py
+
+# Ignore common files
 *.db
 *.exe
 *.json
 *.o
-*.sqlite
-*.sqlite3
+*.sqlite*
 *.txt
-.vscode
-build
-HANGMAN
-README.md
 *.csv
+
+# Ignore folders
+.vscode/
+build/
+HANGMAN/
+README.md
