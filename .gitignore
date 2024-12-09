@@ -3,8 +3,6 @@ __pycache__/
 
 # Ignore specific test files
 test.*
-PYTHON/EXERCISES/test.py
-C:/Users/Dreid/Desktop/DOT_Training_Course/PYTHON/EXERCISES
 
 # Ignore common files
 *.db
