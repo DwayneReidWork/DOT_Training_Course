@@ -12,6 +12,8 @@ test.*
 *.sqlite*
 *.txt
 *.csv
+*.h
+*makefile*
 
 # Ignore folders
 .vscode/
