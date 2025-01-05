@@ -17,7 +17,7 @@ print("Today's date:", TODAY)
 while True:
     try:
         #Ask user what kind of countdown they would like.
-        uChoice = int(input("Which would you like:\n1. A Countdown to Christmas 2025\n2. A countdown to a date of your choosing?\n\n" ))
+        uChoice = int(input("Which would you like:\n1. A Countdown to Christmas 2025\n2. A countdown to a date of your choosing\n\n" ))
         
     except ValueError:
         print("YOU HAVE TWO OPTIONS. TRY AGAIN!")
@@ -25,18 +25,21 @@ while True:
     
     #If statement to handle user input.
     if uChoice == 1:
+        os.system('cls')
         print(f"\nThere are {countdown(CHRISTMAS)} days until Christmas!!!!!\n\n")
         break
     elif uChoice == 2:
+        os.system('cls')
         uInputDate = input("Please enter a target date in the format YYYY-MM-DD: ")
         try:
             # Convert user input to a date object
             target_date = date.fromisoformat(uInputDate)
             #To handle dates in the past.
             if target_date < TODAY:
+                os.system('cls')
                 print(f"\nThat date has passed and it was {-countdown(target_date)} days ago.")
             else:
-                print(f"\nThere are {countdown(target_date)} days until {uInputDate}!")
+                print(f"\nThere are {countdown(target_date)} days until {uInputDate}.")
             break
         #Input validation.
         except ValueError:
