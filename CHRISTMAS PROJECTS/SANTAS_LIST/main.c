@@ -89,7 +89,7 @@ int main()
                 {
                     removeName(santasList, &listCount, index);
                     file = fopen("Santas_List.txt", "w");  // Open file to overwrite after modification
-                    saveListToFile(file, santasList, listCount);
+                    saveListToFile(santasList, listCount);
                 }
                 else
                 {
@@ -110,8 +110,7 @@ int main()
                 break;
 
             case 6:  // Exit
-                file = fopen("Santas_List.txt", "w");
-                saveListToFile(file, santasList, listCount);
+                saveListToFile(santasList, listCount);
                 printf("Data saved to file. Exiting...\n");
                 return 0;
 

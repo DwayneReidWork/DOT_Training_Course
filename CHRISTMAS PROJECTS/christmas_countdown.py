@@ -4,7 +4,7 @@ import os #Import to clear screen
 
 #Constant variables
 TODAY = date.today()
-CHRISTMAS = date.fromisoformat("2025-12-25")
+CHRISTMAS = date.fromisoformat("2025-12-24") #NEED TO USE 24 BECAUSE DAY STARTS AT 0
 
 #Function to calculate time between todays date and a specific date.
 def countdown(target_date):
