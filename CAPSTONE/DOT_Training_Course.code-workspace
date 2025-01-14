@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "DOT_Training_Course",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.py": "python",
+			"string.h": "c",
+			"stdio.h": "c",
+			"utility_functions.h": "c",
+			"quiz.h": "c",
+			"naughty_or_nice.h": "c"
+		},
+		"files.eol": "\n"
+	}
+}
