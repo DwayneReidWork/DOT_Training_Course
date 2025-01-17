@@ -1,16 +1,23 @@
-__pycache__
-test.py
-test2.txt
-README.md
-to_do_list.txt
-remove_comments.txt
-remove_comments_done.txt
-gadsby.txt
-HANGMAN
+# Ignore Python cache
+__pycache__/
+
+# Ignore specific test files
+test.*
+
+# Ignore common files
 *.db
-*.sqlite
-*.sqlite3
-.vscode
 *.exe
 *.json
 *.o
+*.sqlite*
+*.txt
+*.csv
+*.h
+*makefile*
+
+# Ignore folders
+.vscode/
+build/
+HANGMAN/
+README.md
+output/
