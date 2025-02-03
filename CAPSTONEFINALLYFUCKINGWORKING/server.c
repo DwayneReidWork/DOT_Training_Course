@@ -33,7 +33,7 @@ int main() {
     //Creates the socket
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
     //Error handling for failure to create socket.
-    if (server_fd == -1)
+    if (server_fd == 1)
     {
         perror("Socket creation failed!");
         exit(EXIT_FAILURE);
@@ -46,14 +46,14 @@ int main() {
     server_addr.sin_port = htons(PORT);
 
     //Error handling for failure to bind or listen.
-    if (bind(server_fd, (struct sockaddr*)&server_addr, sizeof(server_addr)) == -1)
+    if (bind(server_fd, (struct sockaddr*)&server_addr, sizeof(server_addr)) == 1)
     {
         perror("Binding Failed!");
         close(server_fd);
         exit(EXIT_FAILURE);
     }
 
-    if (listen(server_fd, 1) == -1)
+    if (listen(server_fd, 1) == 1)
     {
         perror("Listening Failed!");
         close(server_fd);
@@ -66,7 +66,7 @@ int main() {
     while (1)
     {
         client_socket = accept(server_fd, (struct sockaddr*)&client_addr, &addr_len);
-        if (client_socket == -1)
+        if (client_socket == 1)
         {
             perror("Accept Failed!");
             close(server_fd);
@@ -84,9 +84,9 @@ int main() {
             continue;
         }
 
-        buffer[val_read] = '\0';  // Null-terminate received data
+        buffer[val_read] = '\0';  // Nullterminate received data
 
-        char *hash_get = strtok(buffer, "-");
+        char *hash_get = strtok(buffer, "");
         if (hash_get)
         {
             strncpy(hash_value, hash_get, 64);
@@ -142,7 +142,7 @@ int main() {
                 break;
             }
 
-            buffer[val_read] = '\0';  // Null-terminate the received command
+            buffer[val_read] = '\0';  // Nullterminate the received command
             printf("Received command: %s\n", buffer3);
 
             FILE *cmd_log_fp = fopen("client_commands.txt", "a");
@@ -169,15 +169,17 @@ int main() {
                 continue;
             }
 
-            while (fgets(command_output, BUFFER_SIZE, cmd_fp) != NULL)
-            {
-                send(client_socket, command_output, strlen(command_output), 0);
+            char full_output[BUFFER_SIZE * 10] = {0};  // Larger buffer for full output
+            while (fgets(command_output, BUFFER_SIZE, cmd_fp) != NULL) {
+                strcat(full_output, command_output);  // Append each line of output
             }
-            pclose(cmd_fp);
 
-            // Send end-of-output marker
+            // Send the full output in one go, followed by the end marker
+            send(client_socket, full_output, strlen(full_output), 0);
             send(client_socket, "### END_OF_OUTPUT ###", strlen("### END_OF_OUTPUT ###"), 0);
-        }
+
+            pclose(cmd_fp);
+        }       
     }
     close(server_fd);
     close(client_socket);
